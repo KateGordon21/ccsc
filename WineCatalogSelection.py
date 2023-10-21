@@ -51,16 +51,15 @@ def get_highest_average(lists):
 if __name__ == "__main__":
 
     # Getting user input
-    x, y = input("Enter x and y: ").split()
+    x, y = input().split()
     x, y = int(x), int(y)
     lines = []
     
     count = 0
     while count < x:
-        current_list = input(f"Enter list {count+1}: ").split()
+        current_list = input().split()
 
         if len(current_list) > y or len(current_list) < y:
-            print("Enter y number of values only, try again.")
             continue
 
         for i in range(len(current_list)):
