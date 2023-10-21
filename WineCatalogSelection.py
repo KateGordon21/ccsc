@@ -21,14 +21,14 @@ It is guaranteed that the answer is unique
 def get_max_lists(lists: list(list())) -> list():
     # Keeping track of the list with the maximum amount of maximally-priced wines with a counter of maxes for each list
     max_counter = [0] * len(lists)
-    for i in range(len(lists)):
-        max_price = lists[i][0]
-        for j in range(1, len(lists[0])):
-            max_price = max(lists[i][j], max_price)
+    for i in range(len(lists[0])):
+        max_price = 0
+        for j in range(len(lists)):
+            max_price = max(lists[j][i], max_price)
         
-        for j in range(len(lists[0])):
-            if lists[i][j] == max_price:
-                max_counter[i] += 1
+        for j in range(len(lists)):
+            if lists[j][i] == max_price:
+                max_counter[j] += 1
 
     max_value = max(max_counter)
     max_lists = []
